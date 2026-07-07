@@ -3,7 +3,7 @@
   "name": "webpage-capture",
   "title": "Web Page Screenshot & Diagnostics",
   "description": "Capture full-page screenshots of any website with configurable viewport, device emulation, dark mode, and mobile support. Returns the screenshot along with page diagnostics (title, HTTP status, load time). Perfect for QA monitoring, visual regression testing, page archival, and reporting.",
-  "version": "1.0.0",
+  "version": "1.0",
   "dockerfile": "../Dockerfile",
   "input": "./INPUT_SCHEMA.json",
   "storedResults": {
