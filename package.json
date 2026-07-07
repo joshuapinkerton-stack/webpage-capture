@@ -1,0 +1,16 @@
+{
+  "name": "webpage-capture",
+  "version": "1.0.0",
+  "description": "Capture full-page screenshots of websites with device emulation, dark mode, and diagnostics metadata. Supports desktop, tablet, and mobile viewports.",
+  "main": "src/main.js",
+  "type": "module",
+  "dependencies": {
+    "apify": "^3.7.0",
+    "crawlee": "^3.12.0",
+    "playwright": "^1.52.0"
+  },
+  "scripts": {
+    "start": "node src/main.js",
+    "test:local": "node src/main.js --input='{\"urls\":[\"https://example.com\"]}'"
+  }
+}

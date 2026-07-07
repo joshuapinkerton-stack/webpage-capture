@@ -1,0 +1,99 @@
+{
+  "title": "Web Page Screenshot & Diagnostics",
+  "type": "object",
+  "schemaVersion": 1,
+  "required": ["urls"],
+  "properties": {
+    "urls": {
+      "title": "Page URLs",
+      "type": "array",
+      "description": "One or more URLs to capture. Each URL gets a separate screenshot and diagnostics report.",
+      "editor": "stringList",
+      "prefill": ["https://example.com"]
+    },
+    "viewportWidth": {
+      "title": "Viewport Width (px)",
+      "type": "integer",
+      "description": "Browser viewport width in pixels.",
+      "default": 1280,
+      "minimum": 320,
+      "maximum": 3840
+    },
+    "viewportHeight": {
+      "title": "Viewport Height (px)",
+      "type": "integer",
+      "description": "Browser viewport height in pixels. Ignored when fullPage is true.",
+      "default": 720,
+      "minimum": 240,
+      "maximum": 4320
+    },
+    "fullPage": {
+      "title": "Full Page Screenshot",
+      "type": "boolean",
+      "description": "If true, captures the entire scrollable page. If false, captures only the viewport.",
+      "default": true
+    },
+    "deviceEmulation": {
+      "title": "Device Emulation",
+      "type": "string",
+      "description": "Emulate a specific device. Overrides viewport settings. 'none' uses the viewport settings above.",
+      "enum": [
+        "none",
+        "iPhone 15 Pro Max",
+        "iPhone 15 Pro",
+        "iPhone SE",
+        "Pixel 9 Pro",
+        "Samsung Galaxy S24",
+        "iPad Pro 13",
+        "iPad Mini",
+        "Surface Pro 9"
+      ],
+      "default": "none",
+      "editor": "select"
+    },
+    "format": {
+      "title": "Image Format",
+      "type": "string",
+      "enum": ["png", "jpeg", "webp"],
+      "description": "Output image format. PNG is lossless, JPEG is smaller, WebP offers the best compression.",
+      "default": "png",
+      "editor": "select"
+    },
+    "quality": {
+      "title": "JPEG/WebP Quality",
+      "type": "integer",
+      "description": "Image quality for JPEG and WebP formats (1-100). Ignored for PNG.",
+      "default": 85,
+      "minimum": 1,
+      "maximum": 100
+    },
+    "darkMode": {
+      "title": "Dark Mode",
+      "type": "boolean",
+      "description": "If true, forces prefers-color-scheme: dark via CSS media query emulation.",
+      "default": false
+    },
+    "waitUntil": {
+      "title": "Page Load Strategy",
+      "type": "string",
+      "enum": ["load", "domcontentloaded", "networkidle"],
+      "description": "When to consider the page loaded. 'networkidle' waits for no network activity for 500ms. Use 'load' for faster captures.",
+      "default": "networkidle",
+      "editor": "select"
+    },
+    "waitAfter": {
+      "title": "Extra Wait (ms)",
+      "type": "integer",
+      "description": "Additional milliseconds to wait after page load before capturing. Useful for pages with animations or lazy-loaded content.",
+      "default": 1000,
+      "minimum": 0,
+      "maximum": 30000
+    },
+    "blockImages": {
+      "title": "Block Images",
+      "type": "boolean",
+      "description": "If true, blocks image loading for faster captures. Screenshot will show placeholder icons for images.",
+      "default": false
+    }
+  }
+}
